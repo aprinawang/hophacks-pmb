@@ -1,8 +1,14 @@
 import React from 'react'
+import './profile.css';
+import { BsFillPersonFill } from 'react-icons/bs';
 
 const Profile = () => {
   return (
-    <div>Profile</div>
+
+    <div className = 'profile'>
+      <BsFillPersonFill color = "#FFFFFF"/>
+    </div>
+
   )
 }
 
