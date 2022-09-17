@@ -17,7 +17,7 @@
 }
 
 .trip-title {
-    width: 70%;
+    width: 72%;
     padding: 2vw;
     background-color: #f8f8e9;
     color: #7d9b76;
@@ -26,7 +26,7 @@
 }
 
 .camera-icon {
-    height: 80%;
+    height: 8vh;
     background-color: #7d9b76;
     border-radius: 50%;
     display: flex;
