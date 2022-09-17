@@ -24,7 +24,7 @@ const Trip = () => {
         <div className='header'>
             <h1 className='trip-title'>{today.toLocaleDateString()} Trip</h1>
             <span className='camera-icon'>
-                <BsCameraFill color="#FFFFFF"/>
+                <BsCameraFill color="#FFFFFF" size = {'2em'}/>
             </span>
         </div>
         <div>

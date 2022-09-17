@@ -9,7 +9,6 @@ const Item = ({name, price}) => {
     currency: 'USD'
   });
 
-
   return (
     <div className='item'>
       <p className='item-name'>
