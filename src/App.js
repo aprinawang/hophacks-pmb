@@ -1,11 +1,11 @@
 import './App.css';
+import Trip from './pages/Trip/Trip';
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-
-      </header>
+      <Trip></Trip>
     </div>
   );
 }

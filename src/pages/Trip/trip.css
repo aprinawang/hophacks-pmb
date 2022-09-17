@@ -1,0 +1,32 @@
+.trip {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header {
+    margin: 2vh;
+    height: 8vh;
+    margin-left: 5%;
+    margin-right: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.trip-title {
+    width: 70%;
+    padding: 2vw;
+    background-color: #f8f8e9;
+    color: #7d9b76;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.camera-icon {
+    height: 80%;
+    background-color: #7d9b76;
+    aspect-ratio: 1/1;
+}

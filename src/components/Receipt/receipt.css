@@ -1,0 +1,29 @@
+.receipt {
+    background-color: #cbddd1;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5vw;
+    padding: 3vw;
+    margin-top: auto;
+    border: #a6a6a6 solid 1px;
+}
+
+.receipt-header {
+    height: 7%;
+    width: 100%;
+    margin-left: 5%;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.items {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    align-items: center;
+    overflow-x: scroll;
+}
