@@ -6,7 +6,7 @@ const Profile = () => {
   return (
 
     <div className = 'profile'>
-      <BsFillPersonFill color = "#FFFFFF"/>
+      <BsFillPersonFill color = "#FFFFFF" size = {'2em'}/>
     </div>
 
   )
