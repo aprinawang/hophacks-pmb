@@ -28,5 +28,9 @@
 .camera-icon {
     height: 80%;
     background-color: #7d9b76;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     aspect-ratio: 1/1;
 }
