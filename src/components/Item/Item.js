@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './item.css';
 import { IoIosArrowDropdown } from 'react-icons/io';
+import SplitMenu from '../SplitMenu/SplitMenu';
 
 const Item = ({name, price}) => {
   const [expanded, setExpanded] = useState(false);
@@ -29,15 +30,18 @@ const Item = ({name, price}) => {
 
   return (
     <div className='item' style={{'backgroundColor': color, 'height': height}}>
-      <p className='item-name'>
-        {name}
-      </p>
-      <p className='item-price'>
-        {formatter.format(price)}
-      </p>
-      <span className='item-dropdown' onClick={() => setExpanded(!expanded)}>
-        <IoIosArrowDropdown color='#a6a6a6'/>
-      </span>
+      <div className='item-header'>
+        <p className='item-name'>
+          {name}
+        </p>
+        <p className='item-price'>
+          {formatter.format(price)}
+        </p>
+        <span className='item-dropdown' onClick={() => setExpanded(!expanded)}>
+          <IoIosArrowDropdown color='#a6a6a6'/>
+        </span>
+      </div>
+      {expanded && <SplitMenu></SplitMenu>}
     </div>
   )
 }
