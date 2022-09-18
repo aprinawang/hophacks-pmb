@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/pay-me-back/static/css/main.bae09d8a.css",
+    "main.js": "/pay-me-back/static/js/main.9e235c85.js",
+    "static/js/787.2362a5ef.chunk.js": "/pay-me-back/static/js/787.2362a5ef.chunk.js",
+    "index.html": "/pay-me-back/index.html",
+    "main.bae09d8a.css.map": "/pay-me-back/static/css/main.bae09d8a.css.map",
+    "main.9e235c85.js.map": "/pay-me-back/static/js/main.9e235c85.js.map",
+    "787.2362a5ef.chunk.js.map": "/pay-me-back/static/js/787.2362a5ef.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bae09d8a.css",
+    "static/js/main.9e235c85.js"
+  ]
+}
