@@ -3,7 +3,7 @@ import './item.css';
 import { IoIosArrowDropdown } from 'react-icons/io';
 import SplitMenu from '../SplitMenu/SplitMenu';
 
-const Item = ({name, price, people}) => {
+const Item = ({item, people}) => {
   const [expanded, setExpanded] = useState(false);
   const [split, setSplit] = useState(false);
   const [color, setColor] = useState('##FFFFF6');
@@ -32,16 +32,16 @@ const Item = ({name, price, people}) => {
     <div className='item' style={{'backgroundColor': color, 'height': height}}>
       <div className='item-header'>
         <p className='item-name'>
-          {name}
+          {item.name}
         </p>
         <p className='item-price'>
-          {formatter.format(price)}
+          {formatter.format(item.price)}
         </p>
         <span className='item-dropdown' onClick={() => setExpanded(!expanded)}>
           <IoIosArrowDropdown color='#a6a6a6'/>
         </span>
       </div>
-      {expanded && <SplitMenu people={people}></SplitMenu>}
+      {expanded && <SplitMenu total={item.price} people={people}></SplitMenu>}
     </div>
   )
 }

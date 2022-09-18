@@ -1,14 +1,14 @@
 import React from 'react'
 import Profile from './Profile'
 
-const ProfileList = ({people}) => {
+const ProfileList = ({people, handleClick}) => {
   return (
     <div className='profiles'>
         {people.map((person) => (
             <Profile
                 key={person.id}
-                name={person.name}
-                total={person.total}
+                person={person}
+                handleClick={handleClick}
             />
         ))}
     </div>

@@ -14,10 +14,10 @@ const item_arr = [
 ]
 
 const people_arr = [
-    {'id': 0, 'name': 'Renee', 'total': 0, 'items': []},
-    {'id': 1, 'name': 'Amy', 'total': 0, 'items': []},
-    {'id': 2, 'name': 'Aprina', 'total': 0, 'items': []},
-    {'id': 3, 'name': 'Christine', 'total': 0, 'items': []},
+    {'id': 0, 'name': 'Renee', 'total': 4, 'items': []},
+    {'id': 1, 'name': 'Amy', 'total': 4, 'items': []},
+    {'id': 2, 'name': 'Aprina', 'total': 4, 'items': []},
+    {'id': 3, 'name': 'Christine', 'total': 4, 'items': []},
 ]
 
 const Trip = () => {

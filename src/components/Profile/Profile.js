@@ -7,18 +7,18 @@ const formatter = new Intl.NumberFormat('en-US', {
   currency: 'USD'
 });
 
-const Profile = ({key, name, total, handleClick}) => {
+const Profile = ({person, handleClick}) => {
   
   return (
     <div className='profile-box'>
-      <div className='profile' onClick={() => handleClick(key)}>
+      <div className='profile' onClick={() => handleClick(person.id)}>
         <BsFillPersonFill color = "#FFFFFF" size = {'2em'}/>
       </div>
       <p className='profile-name'>
-        {name}
+        {person.name}
       </p>
       <p className='profile-total'>
-        {formatter.format(total)}
+        {formatter.format(person.total)}
       </p>
     </div>
   )

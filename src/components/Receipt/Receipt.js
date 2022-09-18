@@ -13,8 +13,7 @@ const Receipt = ({items, people}) => {
             { items.map((item) => (
                 <Item
                     key={item.id}
-                    name={item.name}
-                    price={item.price}
+                    item={item}
                     people={people}
                 />
             ))}
