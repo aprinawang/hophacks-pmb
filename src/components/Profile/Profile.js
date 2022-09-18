@@ -7,11 +7,11 @@ const formatter = new Intl.NumberFormat('en-US', {
   currency: 'USD'
 });
 
-const Profile = ({name, total, onClick}) => {
-
+const Profile = ({key, name, total, handleClick}) => {
+  
   return (
     <div className='profile-box'>
-      <div className='profile'>
+      <div className='profile' onClick={() => handleClick(key)}>
         <BsFillPersonFill color = "#FFFFFF" size = {'2em'}/>
       </div>
       <p className='profile-name'>

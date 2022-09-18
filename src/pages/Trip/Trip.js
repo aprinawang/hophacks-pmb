@@ -3,6 +3,7 @@ import Profile from '../../components/Profile/Profile';
 import Receipt from '../../components/Receipt/Receipt';
 import './trip.css';
 import { BsCameraFill } from 'react-icons/bs';
+import ProfileList from '../../components/Profile/ProfileList';
 
 const item_arr = [
     {'id': 0, 'name': 'Wings', 'price': 14},
@@ -28,6 +29,10 @@ const Trip = () => {
 
     const today = new Date(Date.now());
 
+    const handleSplit = (costs) => {
+        // update people
+    }
+
   return (
     <div className='trip'>
         <div className='header'>
@@ -36,15 +41,7 @@ const Trip = () => {
                 <BsCameraFill color="#FFFFFF" size = {'2.5em'}/>
             </span>
         </div>
-        <div className='profiles'>
-            {people.map((person) => (
-                <Profile
-                    key={person.id}
-                    name={person.name}
-                    total={person.total}
-                />
-            ))}
-        </div>
+        <ProfileList people={people}></ProfileList>
         <Receipt items={items} people={people}></Receipt>
     </div>
   )

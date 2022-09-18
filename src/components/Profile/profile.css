@@ -18,3 +18,11 @@
 .profile-name, .profile-total{
     margin: 2px;
 }
+
+.profiles{
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 5%;
+    margin-left: 5%;
+}

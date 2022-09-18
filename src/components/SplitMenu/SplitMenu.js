@@ -1,8 +1,15 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Profile from '../Profile/Profile'
 import './splitmenu.css'
 
 const SplitMenu = ({people, onClick, onSubmit}) => {
+    const [splitting, setSplitting] = useState([])
+    const handleClick = (id) => {
+        console.log(id);
+        // if (splitting.includes(id)) {
+
+        // }
+    }
   return (
     <div className='split-menu'>
         <div className='profiles'>
@@ -11,6 +18,7 @@ const SplitMenu = ({people, onClick, onSubmit}) => {
                     key={person.id}
                     name={person.name}
                     total={person.total}
+                    handleClick={handleClick}
                 />
             ))}
         </div>
