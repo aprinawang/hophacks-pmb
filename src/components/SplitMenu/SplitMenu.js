@@ -3,9 +3,10 @@ import Profile from '../Profile/Profile'
 import ProfileList from '../Profile/ProfileList'
 import './splitmenu.css'
 
-const SplitMenu = ({total, people, onClick, onSplit}) => {
-    const [subtotals, setSubtotals] = useState(people.map((person) => ({'id': person.id, 'name': person.name, 'total': 0})));
+const SplitMenu = ({item, people, onClick, onSplit, onClose}) => {
+    const [subtotals, setSubtotals] = useState(people.map((person) => ({'id': person.id, 'name': person.name, 'item': item.name, 'subtotal': 0})));
     const [splitting, setSplitting] = useState([])
+    const [split, setSplit] = useState(false);
     const changeSplitters = (id) => {
         if (splitting.includes(id)) {
             setSplitting(splitting.filter((splitter) => splitter !== id))
@@ -16,19 +17,19 @@ const SplitMenu = ({total, people, onClick, onSplit}) => {
 
     useEffect(() => {
         let subtotalsCpy = [...subtotals];
-        const sub = splitting.length > 0 ? total / splitting.length : 0;
+        const sub = splitting.length > 0 ? item.price / splitting.length : 0;
+        setSplit(sub != 0)
         for (const id in people) {
             if (splitting.includes(Number.parseInt(id))) {
                 let subtotal = {
                     ...subtotalsCpy[id],
-                    'total' : sub
+                    'subtotal' : sub
                 };
                 subtotalsCpy[id] = subtotal;
-                setSubtotals(subtotalsCpy);
             } else {
                 let subtotal = {
                     ...subtotalsCpy[id],
-                    'total' : 0
+                    'subtotal' : 0
                 };
                 subtotalsCpy[id] = subtotal;
             }
@@ -40,7 +41,7 @@ const SplitMenu = ({total, people, onClick, onSplit}) => {
     <div className='split-menu'>
         <ProfileList key={subtotals} people={subtotals} handleClick={changeSplitters}/>
         <div className='buttons'>
-            <button className='split-button' onClick={() => onSplit(subtotals)}>
+            <button className='split-button' onClick={() => {onSplit(subtotals, item.price, split); onClose(split)}}>
                 Split
             </button>
         </div>

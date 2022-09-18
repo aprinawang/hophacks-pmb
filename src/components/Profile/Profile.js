@@ -18,7 +18,7 @@ const Profile = ({person, handleClick}) => {
         {person.name}
       </p>
       <p className='profile-total'>
-        {formatter.format(person.total)}
+        {formatter.format(person.subtotal)}
       </p>
     </div>
   )
