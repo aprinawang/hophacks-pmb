@@ -3,7 +3,7 @@ import Profile from '../Profile/Profile'
 import ProfileList from '../Profile/ProfileList'
 import './splitmenu.css'
 
-const SplitMenu = ({total, people, onClick, onSubmit}) => {
+const SplitMenu = ({total, people, onClick, onSplit}) => {
     const [subtotals, setSubtotals] = useState(people.map((person) => ({'id': person.id, 'name': person.name, 'total': 0})));
     const [splitting, setSplitting] = useState([])
     const changeSplitters = (id) => {
@@ -40,7 +40,7 @@ const SplitMenu = ({total, people, onClick, onSubmit}) => {
     <div className='split-menu'>
         <ProfileList key={subtotals} people={subtotals} handleClick={changeSplitters}/>
         <div className='buttons'>
-            <button className='split-button' onClick={() => onSubmit(console.log('submit'))}>
+            <button className='split-button' onClick={() => onSplit(subtotals)}>
                 Split
             </button>
         </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import Item from '../Item/Item';
 import './receipt.css'
 
-const Receipt = ({items, people}) => {
+const Receipt = ({items, people, onSplit}) => {
   return (
     <div className='receipt'>
         <div className='receipt-header'>
@@ -15,6 +15,7 @@ const Receipt = ({items, people}) => {
                     key={item.id}
                     item={item}
                     people={people}
+                    onSplit={onSplit}
                 />
             ))}
         </div>

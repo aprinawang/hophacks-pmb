@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Profile from '../../components/Profile/Profile';
 import Receipt from '../../components/Receipt/Receipt';
 import './trip.css';
 import { BsCameraFill } from 'react-icons/bs';
 import ProfileList from '../../components/Profile/ProfileList';
+import Summary from '../../components/Summary/Summary';
 
 const item_arr = [
     {'id': 0, 'name': 'Wings', 'price': 14},
@@ -29,7 +29,7 @@ const Trip = () => {
 
     const today = new Date(Date.now());
 
-    const handleSplit = (costs) => {
+    const handleSplit = (subtotals) => {
         // update people
     }
 
@@ -41,8 +41,9 @@ const Trip = () => {
                 <BsCameraFill color="#FFFFFF" size = {'2.5em'}/>
             </span>
         </div>
+        <Summary></Summary>
         <ProfileList people={people}></ProfileList>
-        <Receipt items={items} people={people}></Receipt>
+        <Receipt items={items} people={people} onSplit={handleSplit}></Receipt>
     </div>
   )
 }
