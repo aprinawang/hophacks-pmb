@@ -7,7 +7,7 @@ const formatter = new Intl.NumberFormat('en-US', {
   currency: 'USD'
 });
 
-const Profile = ({person, handleClick}) => {
+const Profile = ({person, handleClick, subtotal}) => {
   
   return (
     <div className='profile-box'>
@@ -18,7 +18,7 @@ const Profile = ({person, handleClick}) => {
         {person.name}
       </p>
       <p className='profile-total'>
-        {formatter.format(person.subtotal)}
+        {formatter.format(subtotal ? person.subtotal : person.total)}
       </p>
     </div>
   )

@@ -1,7 +1,7 @@
 import React from 'react'
 import Profile from './Profile'
 
-const ProfileList = ({people, handleClick}) => {
+const ProfileList = ({people, handleClick, subtotal}) => {
   return (
     <div className='profiles'>
         {people.map((person) => (
@@ -9,6 +9,7 @@ const ProfileList = ({people, handleClick}) => {
                 key={person.id}
                 person={person}
                 handleClick={handleClick}
+                subtotal={subtotal}
             />
         ))}
     </div>

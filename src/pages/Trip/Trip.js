@@ -14,10 +14,10 @@ const item_arr = [
 ]
 
 const people_arr = [
-    {'id': 0, 'name': 'Renee', 'subtotal': 0, 'items': []},
-    {'id': 1, 'name': 'Amy', 'subtotal': 0, 'items': []},
-    {'id': 2, 'name': 'Aprina', 'subtotal': 0, 'items': []},
-    {'id': 3, 'name': 'Christine', 'subtotal': 0, 'items': []},
+    {'id': 0, 'name': 'Renee', 'subtotal': 0, 'total': 0, 'items': []},
+    {'id': 1, 'name': 'Amy', 'subtotal': 0, 'total': 0, 'items': []},
+    {'id': 2, 'name': 'Aprina', 'subtotal': 0, 'total': 0, 'items': []},
+    {'id': 3, 'name': 'Christine', 'subtotal': 0, 'total': 0, 'items': []},
 ]
 
 const tax_val = 4.14
@@ -45,9 +45,12 @@ const Trip = () => {
             for (const id in people) {
                 if(subtotals[id].subtotal != 0) {
                     // update person total and items list
+                    const iSubtotal = peopleCpy[id].subtotal + subtotals[id].subtotal
+
                     let person = {
                         ... peopleCpy[id],
-                        'subtotal' : peopleCpy[id].subtotal + subtotals[id].subtotal,
+                        'total' : iSubtotal * (1+tax_rate) * (1+tip_rate),
+                        'subtotal' : iSubtotal,
                         'items' : peopleCpy[id].items ? [...peopleCpy[id].items, subtotals[id].items] : [subtotals[id].item]
                     }
                     peopleCpy[id] = person;
@@ -67,7 +70,7 @@ const Trip = () => {
             </span>
         </div>
 
-        <ProfileList key={people} people={people}></ProfileList>
+        <ProfileList key={people} people={people} subtotal={false}></ProfileList>
         <Receipt items={items} people={people} onSplit={handleSplit} ttt = {{'tax':tax, 'tip':tip, 'total':total}}></Receipt>
     </div>
   )

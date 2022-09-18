@@ -39,7 +39,7 @@ const SplitMenu = ({item, people, onClick, onSplit, onClose}) => {
 
   return (
     <div className='split-menu'>
-        <ProfileList key={subtotals} people={subtotals} handleClick={changeSplitters}/>
+        <ProfileList key={subtotals} people={subtotals} handleClick={changeSplitters} subtotal={true}/>
         <div className='buttons'>
             <button className='split-button' onClick={() => {onSplit(subtotals, item.price, split); onClose(split)}}>
                 Split
