@@ -3,7 +3,7 @@ import './item.css';
 import { IoIosArrowDropdown } from 'react-icons/io';
 import SplitMenu from '../SplitMenu/SplitMenu';
 
-const Item = ({name, price}) => {
+const Item = ({name, price, people}) => {
   const [expanded, setExpanded] = useState(false);
   const [split, setSplit] = useState(false);
   const [color, setColor] = useState('##FFFFF6');
@@ -16,7 +16,7 @@ const Item = ({name, price}) => {
   useEffect(
     () => { 
       if (expanded){
-        setHeight('20vh')
+        setHeight('25vh')
       } else {
         setHeight('5vh');
       }
@@ -41,7 +41,7 @@ const Item = ({name, price}) => {
           <IoIosArrowDropdown color='#a6a6a6'/>
         </span>
       </div>
-      {expanded && <SplitMenu></SplitMenu>}
+      {expanded && <SplitMenu people={people}></SplitMenu>}
     </div>
   )
 }

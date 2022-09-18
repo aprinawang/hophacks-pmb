@@ -2,7 +2,7 @@ import React from 'react';
 import Item from '../Item/Item';
 import './receipt.css'
 
-const Receipt = ({items}) => {
+const Receipt = ({items, people}) => {
   return (
     <div className='receipt'>
         <div className='receipt-header'>
@@ -15,6 +15,7 @@ const Receipt = ({items}) => {
                     key={item.id}
                     name={item.name}
                     price={item.price}
+                    people={people}
                 />
             ))}
         </div>

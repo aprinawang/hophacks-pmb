@@ -7,7 +7,8 @@ const formatter = new Intl.NumberFormat('en-US', {
   currency: 'USD'
 });
 
-const Profile = ({name, total}) => {
+const Profile = ({name, total, onClick}) => {
+
   return (
     <div className='profile-box'>
       <div className='profile'>

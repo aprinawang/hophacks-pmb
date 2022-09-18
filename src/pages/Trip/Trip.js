@@ -12,16 +12,16 @@ const item_arr = [
     {'id': 4, 'name': 'BBQ Burger', 'price': 15},
 ]
 
-const people = [
-    {'name': 'Renee', 'total': 0, 'items': []},
-    {'name': 'Amy', 'total': 0, 'items': []},
-    {'name': 'Aprina', 'total': 0, 'items': []},
-    {'name': 'Christine', 'total': 0, 'items': []},
+const people_arr = [
+    {'id': 0, 'name': 'Renee', 'total': 0, 'items': []},
+    {'id': 1, 'name': 'Amy', 'total': 0, 'items': []},
+    {'id': 2, 'name': 'Aprina', 'total': 0, 'items': []},
+    {'id': 3, 'name': 'Christine', 'total': 0, 'items': []},
 ]
 
 const Trip = () => {
     const [items, setItems] = useState(item_arr);
-    const [people, setPeople] = useState(item_arr);
+    const [people, setPeople] = useState(people_arr);
     let tax = 0;
     let tax_rate;
     let tip = 0;
@@ -37,12 +37,15 @@ const Trip = () => {
             </span>
         </div>
         <div className='profiles'>
-            <Profile name="Amy" total={4}></Profile>
-            <Profile name="Renee" total={4}></Profile>
-            <Profile name="Aprina" total={4}></Profile>
-            <Profile name="Christine" total={4}></Profile>
+            {people.map((person) => (
+                <Profile
+                    key={person.id}
+                    name={person.name}
+                    total={person.total}
+                />
+            ))}
         </div>
-        <Receipt items={items}></Receipt>
+        <Receipt items={items} people={people}></Receipt>
     </div>
   )
 }
