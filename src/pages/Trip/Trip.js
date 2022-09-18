@@ -41,7 +41,6 @@ const Trip = () => {
                 <BsCameraFill color="#FFFFFF" size = {'2.5em'}/>
             </span>
         </div>
-        <Summary></Summary>
         <ProfileList people={people}></ProfileList>
         <Receipt items={items} people={people} onSplit={handleSplit}></Receipt>
     </div>

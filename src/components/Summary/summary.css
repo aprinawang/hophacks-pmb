@@ -1,0 +1,29 @@
+.summary {
+    background-color: #FFFFFF;
+    height: 20vh;
+    width: 40vh;
+    aspect-ratio: 1/1;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    outline: black 1px solid;
+}
+.summary-name {
+
+}
+.summary-header {
+    height: 7%;
+    width: 100%;
+    margin-left: 5%;
+    display: flex;
+    align-items: center;
+}
+.summary-items {
+
+}
+.summary-name {
+
+}
+.summary-price{
+
+}
