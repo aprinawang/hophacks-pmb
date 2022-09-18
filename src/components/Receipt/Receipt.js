@@ -12,8 +12,8 @@ const Receipt = ({items, people, onSplit, ttt}) => {
   return (
     <div className='receipt'>
         <div className='receipt-header'>
-            <h4>Receipt</h4>
-            <h4>Split</h4>
+            <h4 className='receipt-header-r'>Receipt</h4>
+            <h4 className='receipt-header-s'>Split</h4>
         </div>
         <div className='items'>
             { items.map((item) => (

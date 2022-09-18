@@ -3,7 +3,7 @@ import Receipt from '../../components/Receipt/Receipt';
 import './trip.css';
 import { BsCameraFill } from 'react-icons/bs';
 import ProfileList from '../../components/Profile/ProfileList';
-import Summary from '../../components/Summary/Summary';
+// import Summary from '../../components/Summary/Summary';
 
 const item_arr = [
     {'id': 0, 'name': 'Wings', 'price': 14},

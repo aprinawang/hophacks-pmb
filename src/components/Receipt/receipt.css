@@ -13,9 +13,13 @@
 .receipt-header {
     height: 7%;
     width: 100%;
-    margin-left: 5%;
+    margin-left: 7%;
     display: flex;
     align-items: center;
+}
+
+.receipt-header-r {
+    width: 80%;
 }
 
 .items {
