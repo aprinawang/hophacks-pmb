@@ -68,7 +68,7 @@ const Trip = () => {
         </div>
 
         <ProfileList key={people} people={people}></ProfileList>
-        <Receipt items={items} people={people} onSplit={handleSplit} ttt = {[tax, tip, total]}></Receipt>
+        <Receipt items={items} people={people} onSplit={handleSplit} ttt = {{'tax':tax, 'tip':tip, 'total':total}}></Receipt>
     </div>
   )
 }
