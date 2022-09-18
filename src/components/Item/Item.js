@@ -10,7 +10,7 @@ const Item = ({item, people, onSplit}) => {
   const [height, setHeight] = useState('5vh');
 
   useEffect(
-    () => { if (split) { setColor('#e4e4d8'); } }, 
+    () => { if (split) { setColor('#e4e4d8'); setExpanded(false) } }, 
   [split])
 
   useEffect(
@@ -22,6 +22,12 @@ const Item = ({item, people, onSplit}) => {
       }
     },
   [expanded])
+
+  const handleClose = (isSplit) => {
+    console.log(isSplit)
+    setExpanded(false);
+    setSplit(isSplit);
+  }
 
   const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -37,11 +43,11 @@ const Item = ({item, people, onSplit}) => {
         <p className='item-price'>
           {formatter.format(item.price)}
         </p>
-        <span className='item-dropdown' onClick={() => setExpanded(!expanded)}>
+        <span className='item-dropdown' onClick={() => setExpanded(!split && !expanded)}>
           <IoIosArrowDropdown color='#a6a6a6'/>
         </span>
       </div>
-      {expanded && <SplitMenu total={item.price} people={people} onSplit={onSplit}></SplitMenu>}
+      {expanded && <SplitMenu item={item} people={people} onSplit={onSplit} onClose={handleClose}></SplitMenu>}
     </div>
   )
 }

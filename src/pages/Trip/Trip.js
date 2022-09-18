@@ -14,23 +14,41 @@ const item_arr = [
 ]
 
 const people_arr = [
-    {'id': 0, 'name': 'Renee', 'total': 4, 'items': []},
-    {'id': 1, 'name': 'Amy', 'total': 4, 'items': []},
-    {'id': 2, 'name': 'Aprina', 'total': 4, 'items': []},
-    {'id': 3, 'name': 'Christine', 'total': 4, 'items': []},
+    {'id': 0, 'name': 'Renee', 'total': 0, 'items': []},
+    {'id': 1, 'name': 'Amy', 'total': 0, 'items': []},
+    {'id': 2, 'name': 'Aprina', 'total': 0, 'items': []},
+    {'id': 3, 'name': 'Christine', 'total': 0, 'items': []},
 ]
 
 const Trip = () => {
     const [items, setItems] = useState(item_arr);
     const [people, setPeople] = useState(people_arr);
+    const [totalSplit, setTotalSplit] = useState(0);
     let tax = 0;
     let tax_rate;
     let tip = 0;
 
     const today = new Date(Date.now());
 
-    const handleSplit = (subtotals) => {
+    const handleSplit = (subtotals, itemcost, split) => {
         // update people
+        const totSplit = totalSplit + itemcost;
+        if (split) {
+            let peopleCpy = [...people];
+            for (const id in people) {
+                if(subtotals[id].total != 0) {
+                    // update person total and items list
+                    let person = {
+                        ... peopleCpy[id],
+                        'total' : peopleCpy[id].total + subtotals[id].total,
+                        'items' : peopleCpy[id].items ? [...peopleCpy[id].items, subtotals[id].items] : [subtotals[id].item]
+                    }
+                    peopleCpy[id] = person;
+                }
+            }
+            setTotalSplit(totSplit);
+            setPeople(peopleCpy);
+        }
     }
 
   return (
@@ -41,8 +59,8 @@ const Trip = () => {
                 <BsCameraFill color="#FFFFFF" size = {'2.5em'}/>
             </span>
         </div>
-        <Summary></Summary>
-        <ProfileList people={people}></ProfileList>
+
+        <ProfileList key={people} people={people}></ProfileList>
         <Receipt items={items} people={people} onSplit={handleSplit}></Receipt>
     </div>
   )
