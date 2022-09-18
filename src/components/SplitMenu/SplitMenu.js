@@ -4,7 +4,7 @@ import ProfileList from '../Profile/ProfileList'
 import './splitmenu.css'
 
 const SplitMenu = ({item, people, onClick, onSplit, onClose}) => {
-    const [subtotals, setSubtotals] = useState(people.map((person) => ({'id': person.id, 'name': person.name, 'item': item.name, 'total': 0})));
+    const [subtotals, setSubtotals] = useState(people.map((person) => ({'id': person.id, 'name': person.name, 'item': item.name, 'subtotal': 0})));
     const [splitting, setSplitting] = useState([])
     const [split, setSplit] = useState(false);
     const changeSplitters = (id) => {
@@ -23,13 +23,13 @@ const SplitMenu = ({item, people, onClick, onSplit, onClose}) => {
             if (splitting.includes(Number.parseInt(id))) {
                 let subtotal = {
                     ...subtotalsCpy[id],
-                    'total' : sub
+                    'subtotal' : sub
                 };
                 subtotalsCpy[id] = subtotal;
             } else {
                 let subtotal = {
                     ...subtotalsCpy[id],
-                    'total' : 0
+                    'subtotal' : 0
                 };
                 subtotalsCpy[id] = subtotal;
             }

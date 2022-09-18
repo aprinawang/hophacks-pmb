@@ -2,7 +2,7 @@ import React from 'react';
 import Item from '../Item/Item';
 import './receipt.css'
 
-const Receipt = ({items, people, onSplit}) => {
+const Receipt = ({items, people, onSplit, ttt}) => {
   return (
     <div className='receipt'>
         <div className='receipt-header'>

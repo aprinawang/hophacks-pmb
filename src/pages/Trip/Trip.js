@@ -14,19 +14,26 @@ const item_arr = [
 ]
 
 const people_arr = [
-    {'id': 0, 'name': 'Renee', 'total': 0, 'items': []},
-    {'id': 1, 'name': 'Amy', 'total': 0, 'items': []},
-    {'id': 2, 'name': 'Aprina', 'total': 0, 'items': []},
-    {'id': 3, 'name': 'Christine', 'total': 0, 'items': []},
+    {'id': 0, 'name': 'Renee', 'subtotal': 0, 'items': []},
+    {'id': 1, 'name': 'Amy', 'subtotal': 0, 'items': []},
+    {'id': 2, 'name': 'Aprina', 'subtotal': 0, 'items': []},
+    {'id': 3, 'name': 'Christine', 'subtotal': 0, 'items': []},
 ]
+
+const tax_val = 4.14
+const tip_val = 14
+const tax_rate_val = 0.06;
+const subtotal_val = 69;
 
 const Trip = () => {
     const [items, setItems] = useState(item_arr);
     const [people, setPeople] = useState(people_arr);
     const [totalSplit, setTotalSplit] = useState(0);
-    let tax = 0;
-    let tax_rate;
-    let tip = 0;
+    const tax = tax_val;
+    const tip = tip_val;
+    const tax_rate = tax_rate_val;
+    const tip_rate = tip_val / (subtotal_val + tax_val);
+    const total = subtotal_val + tax + tip;
 
     const today = new Date(Date.now());
 
@@ -36,11 +43,11 @@ const Trip = () => {
         if (split) {
             let peopleCpy = [...people];
             for (const id in people) {
-                if(subtotals[id].total != 0) {
+                if(subtotals[id].subtotal != 0) {
                     // update person total and items list
                     let person = {
                         ... peopleCpy[id],
-                        'total' : peopleCpy[id].total + subtotals[id].total,
+                        'subtotal' : peopleCpy[id].subtotal + subtotals[id].subtotal,
                         'items' : peopleCpy[id].items ? [...peopleCpy[id].items, subtotals[id].items] : [subtotals[id].item]
                     }
                     peopleCpy[id] = person;
@@ -61,7 +68,7 @@ const Trip = () => {
         </div>
 
         <ProfileList key={people} people={people}></ProfileList>
-        <Receipt items={items} people={people} onSplit={handleSplit}></Receipt>
+        <Receipt items={items} people={people} onSplit={handleSplit} ttt = {[tax, tip, total]}></Receipt>
     </div>
   )
 }
