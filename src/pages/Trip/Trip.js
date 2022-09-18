@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Receipt from '../../components/Receipt/Receipt';
 import './trip.css';
 import { BsCameraFill } from 'react-icons/bs';
@@ -14,10 +14,10 @@ const item_arr = [
 ]
 
 const people_arr = [
-    {'id': 0, 'name': 'Renee', 'subtotal': 0, 'total': 0, 'items': []},
-    {'id': 1, 'name': 'Amy', 'subtotal': 0, 'total': 0, 'items': []},
-    {'id': 2, 'name': 'Aprina', 'subtotal': 0, 'total': 0, 'items': []},
-    {'id': 3, 'name': 'Christine', 'subtotal': 0, 'total': 0, 'items': []},
+    {'id': 0, 'name': 'Renee', 'subtotal': 0, 'tax': 0, 'tip': 0, 'total': 0, 'items': []},
+    {'id': 1, 'name': 'Amy', 'subtotal': 0, 'tax': 0, 'tip': 0, 'total': 0, 'items': []},
+    {'id': 2, 'name': 'Aprina', 'subtotal': 0, 'tax': 0, 'tip': 0, 'total': 0, 'items': []},
+    {'id': 3, 'name': 'Christine', 'subtotal': 0, 'tax': 0, 'tip': 0, 'total': 0, 'items': []},
 ]
 
 const tax_val = 4.14
@@ -29,6 +29,7 @@ const Trip = () => {
     const [items, setItems] = useState(item_arr);
     const [people, setPeople] = useState(people_arr);
     const [totalSplit, setTotalSplit] = useState(0);
+    const [shownSummary, setShownSummary] = useState(-1);
     const tax = tax_val;
     const tip = tip_val;
     const tax_rate = tax_rate_val;
@@ -46,12 +47,13 @@ const Trip = () => {
                 if(subtotals[id].subtotal != 0) {
                     // update person total and items list
                     const iSubtotal = peopleCpy[id].subtotal + subtotals[id].subtotal
-
                     let person = {
                         ... peopleCpy[id],
                         'total' : iSubtotal * (1+tax_rate) * (1+tip_rate),
                         'subtotal' : iSubtotal,
-                        'items' : peopleCpy[id].items ? [...peopleCpy[id].items, subtotals[id].items] : [subtotals[id].item]
+                        'tax' : iSubtotal * tax_rate,
+                        'tip' : (iSubtotal) * (1+tax_rate) * tip_rate,
+                        'items' : peopleCpy[id].items ? [...peopleCpy[id].items, {'name': subtotals[id].item, 'subtotal': subtotals[id].subtotal}] : [{'name': subtotals[id].item, 'subtotal': subtotals[id].subtotal}]
                     }
                     peopleCpy[id] = person;
                 }
@@ -61,6 +63,17 @@ const Trip = () => {
         }
     }
 
+    // const showSummary = (id) => {
+    //     console.log(id, true)
+    //     setTimeout(() => setShownSummary(id), 0)
+    // }
+
+    // const closeSummary = () => {
+    //     setTimeout(() => setShownSummary(-1), 0)
+    //     console.log('close')
+
+    // }
+
   return (
     <div className='trip'>
         <div className='header'>
@@ -69,9 +82,12 @@ const Trip = () => {
                 <BsCameraFill color="#FFFFFF" size = {'2.5em'}/>
             </span>
         </div>
-
-        <ProfileList key={people} people={people} subtotal={false}></ProfileList>
+        <ProfileList key={people} people={people} subtotal={false} handleClick={() => console.log('test')}></ProfileList>
         <Receipt items={items} people={people} onSplit={handleSplit} ttt = {{'tax':tax, 'tip':tip, 'total':total}}></Receipt>
+        {/* {shownSummary != -1 && <Summary person={people[shownSummary]} onClose={closeSummary}></Summary>} */}
+        <div className='trip-review'>
+            <button className='trip-rev-button'>DONE</button>
+        </div>
     </div>
   )
 }

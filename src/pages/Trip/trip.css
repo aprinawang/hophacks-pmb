@@ -34,3 +34,19 @@
     align-items: center;
     aspect-ratio: 1/1;
 }
+
+.trip-review {
+    margin-right: 5%;
+    margin-left: 5%;
+    display: flex;
+    justify-content: end;
+}
+
+.trip-rev-button {
+    border-radius: 15px;
+    width: 30%;
+    background-color: #7d9b76;
+    color: #FFFFFF;
+    padding: 2%;
+    border: none;
+}
