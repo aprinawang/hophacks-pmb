@@ -34,3 +34,11 @@
     align-items: center;
     aspect-ratio: 1/1;
 }
+
+.profiles{
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 5%;
+    margin-left: 5%;
+}

@@ -27,8 +27,11 @@ const Trip = () => {
                 <BsCameraFill color="#FFFFFF" size = {'2em'}/>
             </span>
         </div>
-        <div>
-            <Profile></Profile>
+        <div className='profiles'>
+            <Profile name="Amy" total={4}></Profile>
+            <Profile name="Renee" total={4}></Profile>
+            <Profile name="Aprina" total={4}></Profile>
+            <Profile name="Christine" total={4}></Profile>
         </div>
         <Receipt items={items}></Receipt>
     </div>

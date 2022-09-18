@@ -7,3 +7,14 @@
     align-items: center;
     display: flex;
 }
+
+.profile-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.profile-name, .profile-total{
+    margin: 2px;
+}
